@@ -6,19 +6,6 @@ from langchain_community.document_loaders import PyMuPDFLoader, UnstructuredMark
 
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
-ROOT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
-directory = "docs"
-a = os.listdir(directory)
-# Define the folder for storing database
-SOURCE_DIRECTORY = f"{ROOT_DIRECTORY}/SOURCE_DOCUMENTS"
-
-PERSIST_DIRECTORY = f"{ROOT_DIRECTORY}/DB"
-
-MODELS_PATH = "./models"
-
-# Can be changed to a specific number
-INGEST_THREADS = min(os.cpu_count(),8)
-
 DOCUMENT_MAP = {
     ".txt": TextLoader,
     ".md": UnstructuredMarkdownLoader,
