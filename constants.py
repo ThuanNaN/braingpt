@@ -1,8 +1,10 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from langchain_community.document_loaders import CSVLoader, TextLoader, UnstructuredExcelLoader, Docx2txtLoader
 from langchain_community.document_loaders import PyMuPDFLoader, UnstructuredMarkdownLoader
 
-os.environ["OPENAI_API_KEY"] = 'MY_API_KEY'
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
 ROOT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 directory = "docs"
